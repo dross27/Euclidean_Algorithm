@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 
 long int EuclideanAlgorithm(long int, long int);
 void checkForNegativeValues(long int &, long int &);
@@ -6,7 +7,11 @@ void makeTheLargestNumFirst(long int &, long int &);
 
 int main()
 {
+    cout << "GCD: "<< EuclideanAlgorithm(36,90) << endl;
+    
+    system("pause");
 
+    return 0;
 }
 long int EuclideanAlgorithm(long int numA, long int numB)
 {
@@ -18,12 +23,18 @@ long int EuclideanAlgorithm(long int numA, long int numB)
 
     do
     {
-        q = numA / numB;
+        q = numA / numB; 
         r = numA % numB;
-       
 
-    }while (r != 0);
+        if (r != 0)
+            previousRemainder = r;
+
+        numA = numB;
+        numB = r;
+
+    } while (r != 0);
     
+    return previousRemainder;
 
 }
 void checkForNegativeValues(long int &numA, long int &numB) 
