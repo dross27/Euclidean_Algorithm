@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\donjanell\documents\visual studio 2017\projects\greatestcommonvalue\greatestcommonvalue\main.cpp(10): warning C4101: 'ans': unreferenced local variable
+c:\users\donjanell\documents\visual studio 2017\projects\greatestcommonvalue\greatestcommonvalue\main.cpp(11): warning C4101: 'numB': unreferenced local variable
+c:\users\donjanell\documents\visual studio 2017\projects\greatestcommonvalue\greatestcommonvalue\main.cpp(11): warning C4101: 'numA': unreferenced local variable
+  GreatestCommonValue.vcxproj -> c:\users\donjanell\documents\visual studio 2017\Projects\GreatestCommonValue\Debug\GreatestCommonValue.exe
+  GreatestCommonValue.vcxproj -> c:\users\donjanell\documents\visual studio 2017\Projects\GreatestCommonValue\Debug\GreatestCommonValue.pdb (Partial PDB)
