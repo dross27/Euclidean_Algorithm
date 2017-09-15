@@ -3,10 +3,12 @@
 //  MATH 1165
 //  9/15/2017
 //
-//  This program uses the Euclidean Algorithm to get gcd of two
-//  numbers
+//  This program uses the Euclidean Algorithm to get the gcd of two
+//  integers of any size (within long int restrictions -4.2 billion to
+// + 4.2 billion. 
 //****************************************************************************
 #include<iostream>
+#include<math.h>
 using namespace std;
 
 // Function prototypes 
@@ -14,33 +16,40 @@ long int EuclideanAlgorithm(long int, long int);
 void checkForNegativeValues(long int &, long int &);
 void makeTheLargestNumFirst(long int &, long int &);
 bool doesNumBDivivideNumA(long int, long int);
+void printGDC(long int, long int);
 
+//Main function
 int main()
 {
     char ans; // holds the users answer
     long int numA, numB; // first and second number in E.A 
-    bool isQuiting = false; // handles 
+    bool isQuitting = false; // handles user quit
     
     do
     {  // Get The two numbers
        cout << "Enter two values to find their GCD (use a space to seperate the two values)\n";
        cin >> numA >> numB; // takes the two numbers the user inputs
-      
-       if ((numA != 0 && numB != 0) && !doesNumBDivivideNumA(numA, numB)) // check to make sure the number are not 0
+       
+       // This is to handle if one of values past is 1 and both number are non-zero or -1
+       if ((numA != 0 && numB != 0) && (numA == 1 && abs(numB) != 1 || numB == 1 && abs(numA) != 1))
+       {
+           cout << "The GCD(" << numA << "," << numB << ")" << " = 1 \n";
+       }
+
+       else if ((numA != 0 && numB != 0) && !doesNumBDivivideNumA(numA, numB)) // check to make sure the number are not 0
        {                                                                  // also check is b does not divived a
-           cout << "The GCD(" << numA << "," << numB << ")" << " = "
-               << EuclideanAlgorithm(numA, numB) << endl;
+           printGDC(numA, numB);
        }
        else
-           cout << "number(s) can not be zero and/or b cannot divide a.\n";
+           cout << "number(s) can not be zero and/or b cannot divide a.\n"; // notifies user of E.A restrictions
 
        cout << "To continue press any key. to quit press q\n";
-       cin >> ans;
+       cin >> ans; 
 
        if (ans == 'q' || ans == 'Q') // Allows the user to quit
-           isQuiting = true;
+           isQuitting = true;
       
-    } while (!isQuiting);
+    } while (!isQuitting);
    
     return 0;
 }
@@ -111,4 +120,15 @@ bool doesNumBDivivideNumA(long int numA, long int numB)
         return true;
     else
         return false;
+}
+
+//****************************************************************************
+// printGDC
+// This function prints the GDC
+//****************************************************************************
+
+void printGDC(long int numA, long int numB)
+{
+    cout << "The GCD(" << numA << "," << numB << ")" << " = "
+        << EuclideanAlgorithm(numA, numB) << endl;  // Prints the value of the gcd
 }
