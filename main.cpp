@@ -31,8 +31,19 @@ int main()
        cin >> numA >> numB; // takes the two numbers the user inputs
 
        // here I should get the abs value and put the greatest number first
+       checkForNegativeValues(numA, numB);
+       makeTheLargestNumFirst(numA, numB);
 
        // Then the first if statement will check if they are multiples or a zero is passed
+       if (numA == 0 || numB == 0)
+       {
+           // return the gcd when an arg is 0
+       }
+
+       else if (numA % numB == 0)
+       {
+           // returns gcd when the to args are multiples
+       }
        // Then use an algo to calculate the gcd of a multiple or a if one arg is zero
             // i.e if they are multiples return the smallest number
        
