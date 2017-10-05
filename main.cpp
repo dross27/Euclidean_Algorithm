@@ -1,64 +1,71 @@
 //****************************************************************************
 //  Donjanell Ross
 //  MATH 1165
-//  9/15/2017
+//  10/5/2017
 //
 //  This program uses the Euclidean Algorithm to get the gcd of two
 //  integers of any size (within long int restrictions -4.2 billion to
-// + 4.2 billion. 
+// + 4.2 billion. REVISION
 //****************************************************************************
+
 #include<iostream>
 #include<math.h>
 using namespace std;
 
 // Function prototypes 
 long int EuclideanAlgorithm(long int, long int);
-void checkForNegativeValues(long int &, long int &);
-void makeTheLargestNumFirst(long int &, long int &);
-bool doesNumBDivivideNumA(long int, long int);
-void printGDC(long int, long int);
+void     checkForNegativeValues(long int &, long int &);
+void     makeTheLargestNumFirst(long int &, long int &);
+bool     doesNumBDivivideNumA(long int, long int);
+void     printGDC(long int, long int);
 
+//*****************************************************************************
+//
 //Main function
+//*****************************************************************************
 int main()
 {
-    char ans; // holds the users answer
     long int numA, numB; // first and second number in E.A 
-    bool isQuitting = false; // handles user quit
+    long int originalA, originalB; // Keeps the original values
     
-    
-      // Get The two numbers
-       cout << "Enter two values to find their GCD (use a space to seperate the two values)\n";
-       cin >> numA >> numB; // takes the two numbers the user inputs
+    // Get The two numbers from the user to compute GCD 
+    cout << "Enter two values to find their GCD (use a space between numbers)\n";
 
-       // here I should get the abs value and put the greatest number first
-       checkForNegativeValues(numA, numB);
-       makeTheLargestNumFirst(numA, numB);
+    cin >> numA >> numB; // takes the two numbers the user inputs
 
-       // Then the first if statement will check if they are multiples or a zero is passed
-       if (numA == 0 || numB == 0)
-       {
-           // return the gcd when an arg is 0
-       }
+    // Keeps the original values of the two numbers
+    originalA = numA;
+    originalB = numB;
 
-       else if (numA % numB == 0)
-       {
-           // returns gcd when the to args are multiples
-       }
-       // Then use an algo to calculate the gcd of a multiple or a if one arg is zero
-            // i.e if they are multiples return the smallest number
-       
-       // This is to handle if one of values past is 1 and both number are non-zero or -1
-       if ((numA != 0 && numB != 0) && (numA == 1 && abs(numB) != 1 || numB == 1 && abs(numA) != 1))
-       {
-           cout << "The GCD(" << numA << "," << numB << ")" << " = 1 \n";
-       }
+    // if values are negative, convert to positive 
+    checkForNegativeValues(numA, numB);
 
-       else 
-       {                                                                  // also check is b does not divived a
-           printGDC(numA, numB);
-       }
+    // Makes the first number the largest   
+    makeTheLargestNumFirst(numA, numB);
+
+    // Handles if either number is zero. 
+    if (numA == 0 || numB == 0)
+    {
         
-   
+        cout << "The GCD(" << originalA << "," << originalB << ")" << " = "
+            << numA << endl;
+    }
+
+    // handles if the numbers are multiples 
+    else if (numA % numB == 0)
+    {
+         
+        cout << "The GCD(" << originalA << "," << originalB << ")" << " = " 
+            << numB << endl; // when multiples, gcd is the smallest of the two
+    }
+    // All other numbers use the Euclidean Algorithm to compute GCD
+    else 
+    {                                                              
+        printGDC(numA, numB);
+    }
+        
+    system("pause"); // needed for console
+
     return 0;
 }
 
@@ -70,9 +77,9 @@ long int EuclideanAlgorithm(long int numA, long int numB)
 {
     long int q, r, previousRemainder;
 
-    checkForNegativeValues(numA, numB);
+   // checkForNegativeValues(numA, numB);
 
-    makeTheLargestNumFirst(numA, numB);
+   // makeTheLargestNumFirst(numA, numB);
 
     do // Euclidean Algorithm calculation 
     {
@@ -137,6 +144,7 @@ bool doesNumBDivivideNumA(long int numA, long int numB)
 
 void printGDC(long int numA, long int numB)
 {
+    // Prints the value of the GCD using a 
     cout << "The GCD(" << numA << "," << numB << ")" << " = "
-        << EuclideanAlgorithm(numA, numB) << endl;  // Prints the value of the gcd
+         << EuclideanAlgorithm(numA, numB) << endl; 
 }
