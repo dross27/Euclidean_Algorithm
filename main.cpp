@@ -25,10 +25,16 @@ int main()
     long int numA, numB; // first and second number in E.A 
     bool isQuitting = false; // handles user quit
     
-    do
-    {  // Get The two numbers
+    
+      // Get The two numbers
        cout << "Enter two values to find their GCD (use a space to seperate the two values)\n";
        cin >> numA >> numB; // takes the two numbers the user inputs
+
+       // here I should get the abs value and put the greatest number first
+
+       // Then the first if statement will check if they are multiples or a zero is passed
+       // Then use an algo to calculate the gcd of a multiple or a if one arg is zero
+            // i.e if they are multiples return the smallest number
        
        // This is to handle if one of values past is 1 and both number are non-zero or -1
        if ((numA != 0 && numB != 0) && (numA == 1 && abs(numB) != 1 || numB == 1 && abs(numA) != 1))
@@ -36,20 +42,11 @@ int main()
            cout << "The GCD(" << numA << "," << numB << ")" << " = 1 \n";
        }
 
-       else if ((numA != 0 && numB != 0) && !doesNumBDivivideNumA(numA, numB)) // check to make sure the number are not 0
+       else 
        {                                                                  // also check is b does not divived a
            printGDC(numA, numB);
        }
-       else
-           cout << "number(s) can not be zero and/or b cannot divide a.\n"; // notifies user of E.A restrictions
-
-       cout << "To continue press any key. to quit press q\n";
-       cin >> ans; 
-
-       if (ans == 'q' || ans == 'Q') // Allows the user to quit
-           isQuitting = true;
-      
-    } while (!isQuitting);
+        
    
     return 0;
 }

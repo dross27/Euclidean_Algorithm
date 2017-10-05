@@ -1,6 +1,9 @@
-# Files to be ignored listed below:
+
 WillYouIgnoreMe.txt
 Debug/
 EuclideanAlgo_Ross.cpp
-GreatestCommonValue.vcxproj.filters
-GreatestCommonValue.vcxproj
+*.vcxproj.filters
+*.vcxproj
+*.idp
+*.pdb
+*.log
