@@ -1,6 +1,6 @@
 
 WillYouIgnoreMe.txt
-Debug/main.obj
+/Debug/*
 EuclideanAlgo_Ross.cpp
 *.vcxproj.filters
 *.vcxproj
