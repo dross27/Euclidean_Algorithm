@@ -9,6 +9,8 @@
 //****************************************************************************
 
 #include<iostream>
+#include<gtest/gtest.h>
+
 using namespace std;
 
 // Function prototypes 
@@ -20,8 +22,10 @@ void     makeTheLargestNumFirst(long int &, long int &);
 //
 //Main function
 //*****************************************************************************
-int main()
+int main(int argc, char* argv[])
 {
+    testing::InitGoogleTest(&argc, argv);
+
     long int numA, numB; // first and second number in E.A 
     long int originalA, originalB; // Keeps the original values
     
@@ -69,10 +73,8 @@ int main()
         cout << "The GCD(" << originalA << "," << originalB << ")" << " = "
              << EuclideanAlgorithm(numA,numB) << endl;
     }
-        
-    system("pause"); // needed for console
-
-    return 0;
+     
+    return RUN_ALL_TESTS();
 }
 
 //****************************************************************************
