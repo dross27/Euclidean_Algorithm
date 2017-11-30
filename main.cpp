@@ -1,8 +1,4 @@
-//****************************************************************************
-//  Donjanell Ross
-//  MATH 1165
-//  10/5/2017
-//
+
 //  This program uses the Euclidean Algorithm to get the gcd of two
 //  integers of any size (within long int restrictions -4.2 billion to
 // + 4.2 billion. REVISION: now works for 1 and zero
