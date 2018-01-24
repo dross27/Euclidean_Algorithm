@@ -1,7 +1,7 @@
 
 //  This program uses the Euclidean Algorithm to get the gcd of two
 //  integers of any size (within long int restrictions -4.2 billion to
-// + 4.2 billion. REVISION: now works for 1 and zero
+// + 4.2 billion.
 //****************************************************************************
 
 #include<iostream>
